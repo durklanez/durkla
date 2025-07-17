@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Jogo de Dados 1vs1</title>
+</head>
+<body>
+    <h1>🎲 Jogo de Dados 1vs1</h1>
+    <button onclick="jogar()">Jogar Dado</button>
+    <p id="resultado"></p>
+
+    <script>
+        let total = 0;
+        function jogar() {
+            const dado = Math.floor(Math.random() * 6) + 1;
+            total += dado;
+            document.getElementById("resultado").innerText = `Dado: ${dado} | Total: ${total}`;
+        }
+
+        window.onbeforeunload = function () {
+            if (window.Telegram && Telegram.WebApp) {
+                Telegram.WebApp.sendData(JSON.stringify({ pontos: total }));
+            }
+        };
+    </script>
+</body>
+</html>
