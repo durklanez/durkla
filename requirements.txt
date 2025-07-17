@@ -1,0 +1,4 @@
+pyrebase4
+pyTelegramBotAPI
+firebase-admin
+flask
